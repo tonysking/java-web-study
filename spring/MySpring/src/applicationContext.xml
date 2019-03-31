@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean name="A" class="bean.A" >
+		<property name="name" value="tom"></property>		
+	</bean>
+	
+	<bean name="B" class="bean.B" scope="prototype">
+		<property name="a" ref="A" ></property>		
+	</bean>
+</beans>

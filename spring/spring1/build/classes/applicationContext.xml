@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd ">
+
+	<!-- 将User对象交给spring容器管理 -->
+	
+	<!-- scope默认singleton单例模式创建 ：在spring容器中只存在一个实例 -->
+	<bean name="user" class="cn.itcast.bean.User" scope="singleton" init-method="init" destroy-method="destroy">
+	
+	<!-- set方式属性注入 -->
+	<!-- 值类型用value 引用类型用ref -->
+	<property name="name" value="tom"></property>
+	<property name="age" value="16"></property> 
+	
+	</bean>
+
+	
+
+</beans>

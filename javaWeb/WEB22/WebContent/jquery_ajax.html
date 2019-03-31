@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+
+	function fn1(){
+		//get异步访问---------有中文乱码问题
+		$.get(
+			"/WEB22/ajaxServlet2",	//url地址
+			{"name":"阿飞","age":25},	//请求参数
+			function(data){	//执行成功后的回调函数
+				//success...
+				//{\"name\":\"cg\",\"age\":24}
+				alert(data.name);
+			},
+			//"text"
+			"json"
+		);
+	}
+	
+	function fn2(){
+		//post异步访问
+		$.post(
+			"/WEB22/ajaxServlet2",	//url地址
+			{"name":"爱洛","age":25},	//请求参数
+			function(data){	//执行成功后的回调函数
+				//success...
+				//{\"name\":\"cg\",\"age\":24}
+				alert(data.name);
+			},
+			//"text"
+			"json"
+		);
+	}
+	function fn3(){
+
+		$.ajax({
+			url:"/WEB22/ajaxServlet2",
+			async:true,	//	是否异步
+			type:"POST",
+			data:{"name":"lucy","age":18},
+			success:function(data){
+				alert(data.name);
+			},
+			error:function(){
+				alert("请求失败");
+			},
+			dataType:"json"
+			
+		});
+		
+	}
+		
+
+</script>
+
+</head>
+<body>
+	<input type="button" value="get访问服务器端" onclick="fn1()"><span id="span1"></span>
+	<br>
+	<input type="button" value="post访问服务器端" onclick="fn2()"><span id="span2"></span>
+	<br>
+	<input type="button" value="ajax访问服务器端" onclick="fn3()"><span id="span3"></span>
+</body>
+</html>

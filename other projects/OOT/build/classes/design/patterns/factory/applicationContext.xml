@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean name="UserDao" class="design.patterns.factory.dao.UserDao" scope="singleton">
+	</bean>
+	
+	<bean name="UserService" class="design.patterns.factory.service.UserService">
+		<property name="userdao" ref="UserDao" ></property>		
+	</bean>
+</beans>
